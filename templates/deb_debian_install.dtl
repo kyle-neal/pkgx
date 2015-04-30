@@ -1,7 +1,5 @@
 bin/ /opt/{{ package_name }}
-{% if relx.include_erts|default:true %}
 erts-{{ erts_version }} /opt/{{ package_name }}
-{% endif %}
 lib/ /opt/{{ package_name }}
 releases/ /opt/{{ package_name }}
 {{ package_name }}.config /etc/{{ package_name }}

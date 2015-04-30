@@ -11,4 +11,10 @@
 # Short-Description:    {{ package_shortdesc }}
 ### END INIT INFO
 
+START_ERL=`cat /opt/{{ package_name }}/releases/start_erl.data`;
+ERTS_VSN=${START_ERL% *};
+sudo /sbin/setcap 'cap_net_bind_service=+ep' "/opt/{{ package_name }}/erts-${ERTS_VSN}/bin/beam.smp"
+START_ERL=`cat /opt/{{ package_name }}/releases/start_erl.data`;
+ERTS_VSN=${START_ERL% *};
+sudo /sbin/setcap 'cap_net_bind_service=+ep' "/opt/{{ package_name }}/erts-${ERTS_VSN}/bin/beam"
 /usr/bin/sudo -u {{ package_install_user }} CONFIG_PATH=/etc/{{ package_name }}/{{ package_name }}.config -i /opt/{{ package_name }}/bin/{{ app }} $@
