@@ -16,7 +16,7 @@ main(Targets) ->
         true ->
             {ok, PkgVars} = file:consult(VarsFile),
             {package_name, PkgName} = proplists:lookup(package_name, PkgVars),
-            ReleasesFile = "_rel/eredirect_release/releases/RELEASES",
+            ReleasesFile = "_rel/releases/RELEASES",
             case filelib:is_regular(ReleasesFile) of
                 false ->
                     cli_error("No RELEASE file found for " ++ PkgName ++ ". Run './relx release' first.");

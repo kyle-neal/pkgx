@@ -14,7 +14,7 @@ case "$1" in
     ;;
 
     purge)
-    rm -f /usr/lib/{{ package_name }}/log || true
+    rm -f /opt/{{ package_name }}/log || true
 	if which deluser >/dev/null ; then
 	    deluser {{ package_install_user }} 2>/dev/null || true
 	    delgroup {{ package_install_user }} 2>/dev/null || true
